@@ -4,35 +4,25 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 @Entity
-//@Table(uniqueConstraints = )
-//@SequenceGenerator(name = "member_seq_generator", sequenceName = "member_seq")
 @TableGenerator(
         name = "MEMBER_SEQ_GENERATOR",
         table = "MY_SEQUENCES",
         pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
+    @Column(name = "MEMBER_ID")
     private Long id;
-    @Column(name = "name", nullable = false)
+
+    @Column(name = "USERNAME")
     private String username;
-    private Integer age;
-    @Enumerated(EnumType.STRING)
-    private RoleType roleType;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-    @Lob
-    private String description;
 
-    @Transient  // db와 매핑 X
-    private int temp;
+//    @Column(name = "TEAM_ID")
+//    private Long teamId;
 
-
-    public Member() {
-
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 
     public Long getId() {
         return id;
@@ -50,51 +40,13 @@ public class Member {
         this.username = username;
     }
 
-    public Integer getAge() {
-        return age;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public RoleType getRoleType() {
-        return roleType;
-    }
-
-    public void setRoleType(RoleType roleType) {
-        this.roleType = roleType;
-    }
-
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getTemp() {
-        return temp;
-    }
-
-    public void setTemp(int temp) {
-        this.temp = temp;
+    // 연관관계 편의 메소드
+    public void setTeam(Team team) {
+        this.team = team;
+        team.getMembers().add(this);
     }
 }
