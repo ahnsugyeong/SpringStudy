@@ -2,13 +2,13 @@ package hellojpa;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.concurrent.locks.Lock;
+
 @Entity
-@TableGenerator(
-        name = "MEMBER_SEQ_GENERATOR",
-        table = "MY_SEQUENCES",
-        pkColumnValue = "MEMBER_SEQ", allocationSize = 1)
-public class Member {
+public class Member extends BaseEntity {
     @Id
     @GeneratedValue
     @Column(name = "MEMBER_ID")
@@ -17,12 +17,16 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-//    @Column(name = "TEAM_ID")
-//    private Long teamId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TEAM_ID")
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
     private Team team;
+
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID")
+    private Locker locker;
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberProduct> memberProducts = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -40,13 +44,19 @@ public class Member {
         this.username = username;
     }
 
-    public Team getTeam() {
-        return team;
+    public Locker getLocker() {
+        return locker;
     }
 
-    // 연관관계 편의 메소드
-    public void setTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this);
+    public void setLocker(Locker locker) {
+        this.locker = locker;
+    }
+
+    public List<MemberProduct> getMemberProducts() {
+        return memberProducts;
+    }
+
+    public void setMemberProducts(List<MemberProduct> memberProducts) {
+        this.memberProducts = memberProducts;
     }
 }
