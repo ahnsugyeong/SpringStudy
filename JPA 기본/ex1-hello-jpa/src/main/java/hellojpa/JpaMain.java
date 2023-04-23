@@ -6,6 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class JpaMain {
 
@@ -16,35 +20,29 @@ public class JpaMain {
         tx.begin();
 
         try {
-            // 값 타입 -> 불변 객체! (setter private으로 설정)
-            Address address = new Address("homeCity", "street", "10000");
+//            String jpql = "select m From Member m where m.username like '%kim%'";
+//            List<Member> result = em.createQuery(
+//                    jpql,
+//                    Member.class
+//            ).getResultList();
 
-            Member member = new Member();
-            member.setUsername("member1");
-            member.setHomeAddress(address);
-//            em.persist(member);
+            // Criteria 사용 -> 동적 쿼리 짜기 좋음, compile error로 잡을 수 있음 -> sql스럽지 않고 복잡해서 실무에선 잘 안 씀.
+//            CriteriaBuilder cb = em.getCriteriaBuilder();
+//            CriteriaQuery<Member> query = cb.createQuery(Member.class);
 //
-//            Address newAddress = new Address("newCity", "street", "10000");
-//            member.setHomeAddress(newAddress);
+//            Root<Member> m = query.from(Member.class);
+//            CriteriaQuery<Member> cq = query.select(m).where(cb.equal(m.get("username"), "kim"));
+//            List<Member> resultList = em.createQuery(cq).getResultList();
 
 
-            member.getFavoriteFoods().add("치킨");
-            member.getFavoriteFoods().add("피자");
-            member.getFavoriteFoods().add("족발");
+//            Member member = new Member();
+//            member.setUsername("member1");
+//            em.persist(member);
 
-//            member.getAddressHistory().add(new Address("old1", "street", "10000"));
-//            member.getAddressHistory().add(new Address("old2", "street", "10000"));
+            // flush -> commit, query
 
-            member.getAddressHistory().add(new AddressEntity("old1", "street", "10000"));
-            member.getAddressHistory().add(new AddressEntity("old2", "street", "10000"));
 
-            em.persist(member);
 
-            em.flush();
-            em.clear();
-
-            System.out.println("==========");
-            Member findMember = em.find(Member.class, member.getId());
 
 
             tx.commit();
