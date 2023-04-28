@@ -17,7 +17,7 @@ public class Category {
     @Column(name = "category_id")
     private Long id;
 
-    private String namme;
+    private String name;
 
     @ManyToMany
     @JoinTable(name = "category_item",
@@ -26,7 +26,7 @@ public class Category {
     )
     private List<Item> items = new ArrayList<>();
 
-    @ManyToOne(fetch = LAZY )
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
 
