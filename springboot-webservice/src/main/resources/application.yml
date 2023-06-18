@@ -7,20 +7,23 @@ server:
 spring:
   jpa:
     show-sql: true
+    properties:
+      hibernate:
+        dialect:
+          org.hibernate.dialect.H2Dialect
+  session:
+    store-type: jdbc
+
   h2:
     console:
       enabled: true # h2 웹 콘솔 활성화
+  profiles:
+    include: oauth
 
-
-
-  #    spring.jpa.properties.hibernate.dialect.storage_engine=innodb
   jooq:
     sql-dialect: MySQL57Dialect
   datasource:
     username: sa
-    url: jdbc:h2:mem:testdb
-
-
-
+    url: jdbc:h2:mem:testdb;MODE=MYSQL
 
 
