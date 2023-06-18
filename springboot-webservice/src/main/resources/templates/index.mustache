@@ -1,22 +1,22 @@
 {{>layout/header}}
-<h1>Springboot Web Service 🌱</h1>
-<div class="col-md-12">
+<h1 style="margin: 20px;">Springboot Web Service 🌱</h1>
+<div class="col-md-12" style="padding: 20px;">
     <div class="row">
         <div class="col-md-6">
-            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+            <a href="/posts/save" role="button" class="btn btn-primary" style="margin-right: 10px;margin-bottom: 10px;">글 등록</a>
             {{#userName}}
-                Logged in as: <span id="member">{{userName}}</span>
+                <p style="margin-bottom: 10px;">Logged in as: <span id="member">{{userName}}</span></p>
                 <a href="/logout" class="btn btn-info active" role="button">Logout</a>
             {{/userName}}
             {{^userName}}
-                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
+                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button" style="margin-right: 10px;margin-bottom: 10px;">Google Login</a>
+                <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button" style="margin-right: 10px;margin-bottom: 10px;">Naver Login</a>
             {{/userName}}
         </div>
     </div>
 
     <!-- 목록 출력 영역 -->
-    <table class="table table-horizontal table-bordered">
+    <table class="table table-horizontal table-bordered" style="margin-top: 20px;">
         <thead class="thead-strong">
         <tr>
             <th>게시글 ID</th>
@@ -37,7 +37,5 @@
         </tbody>
     </table>
 </div>
-
-
 
 {{>layout/footer}}

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.470s</div>
+<div class="counter">0.198s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">helloDto가_리턴된다()</td>
-<td class="success">0.075s</td>
+<td class="success">0.103s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">hello가_리턴된다()</td>
-<td class="success">0.395s</td>
+<td class="success">0.095s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,15 +92,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>00:49:20.914 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [HelloControllerTest]: using SpringBootContextLoader
-00:49:20.918 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.suddiyo.springboot.web.HelloControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-00:49:20.919 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.suddiyo.springboot.web.HelloControllerTest]: HelloControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-00:49:20.959 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper -- Using ContextCustomizers for test class [HelloControllerTest]: [DisableAutoConfigurationContextCustomizer, DisableObservabilityContextCustomizer, TypeExcludeFiltersContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer]
-00:49:21.034 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [/Users/ahnsugyeong/Desktop/2023/Spring/springboot-webservice/build/classes/java/main/com/suddiyo/springboot/Application.class]
-00:49:21.035 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.suddiyo.springboot.Application for test class com.suddiyo.springboot.web.HelloControllerTest
-00:49:21.054 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper -- Using TestExecutionListeners for test class [HelloControllerTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, WithSecurityContextTestExecutionListener, EventPublishingTestExecutionListener, ReactorContextTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-00:49:21.055 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [HelloControllerTest], class annotated with @DirtiesContext [false] with mode [null]
-00:49:21.069 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener -- Performing dependency injection for test class com.suddiyo.springboot.web.HelloControllerTest
+<pre>2023-06-19T01:03:11.058+09:00  INFO 7091 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.suddiyo.springboot.web.HelloControllerTest]: HelloControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2023-06-19T01:03:11.087+09:00  INFO 7091 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.suddiyo.springboot.Application for test class com.suddiyo.springboot.web.HelloControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -110,14 +103,14 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.6)
 
-2023-06-19T00:49:21.355+09:00  INFO 98376 --- [    Test worker] c.s.springboot.web.HelloControllerTest   : Starting HelloControllerTest using Java 17.0.2 with PID 98376 (started by ahnsugyeong in /Users/ahnsugyeong/Desktop/2023/Spring/springboot-webservice)
-2023-06-19T00:49:21.357+09:00  INFO 98376 --- [    Test worker] c.s.springboot.web.HelloControllerTest   : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-06-19T00:49:22.225+09:00  INFO 98376 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2023-06-19T00:49:22.418+09:00  INFO 98376 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cd6b1bd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@443cdaa4, org.springframework.security.web.context.SecurityContextHolderFilter@616a06e3, org.springframework.security.web.header.HeaderWriterFilter@67688110, org.springframework.security.web.csrf.CsrfFilter@3086f480, org.springframework.security.web.authentication.logout.LogoutFilter@38883a31, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@61037caf, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@670342a2, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2fc49538, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1f15e689, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3b41e1bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@66e827a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44598ef7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@619c93ca, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@14fc9bd, org.springframework.security.web.access.ExceptionTranslationFilter@552fee7a, org.springframework.security.web.access.intercept.AuthorizationFilter@19ae2ee5]
-2023-06-19T00:49:22.475+09:00  INFO 98376 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-06-19T00:49:22.475+09:00  INFO 98376 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-06-19T00:49:22.476+09:00  INFO 98376 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2023-06-19T00:49:22.503+09:00  INFO 98376 --- [    Test worker] c.s.springboot.web.HelloControllerTest   : Started HelloControllerTest in 1.403 seconds (process running for 2.264)
+2023-06-19T01:03:11.121+09:00  INFO 7091 --- [    Test worker] c.s.springboot.web.HelloControllerTest   : Starting HelloControllerTest using Java 17.0.2 with PID 7091 (started by ahnsugyeong in /Users/ahnsugyeong/Desktop/2023/Spring/springboot-webservice)
+2023-06-19T01:03:11.122+09:00  INFO 7091 --- [    Test worker] c.s.springboot.web.HelloControllerTest   : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-06-19T01:03:11.407+09:00  INFO 7091 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-19T01:03:11.565+09:00  INFO 7091 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b549c4a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72412c3d, org.springframework.security.web.context.SecurityContextHolderFilter@22bd6b0a, org.springframework.security.web.header.HeaderWriterFilter@124b1369, org.springframework.security.web.csrf.CsrfFilter@673ce246, org.springframework.security.web.authentication.logout.LogoutFilter@27bd124a, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@56a0dd11, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@7508912e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@1940bacd, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@50a2034c, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@457f43a2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@221383c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1a389b39, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4016d5fe, org.springframework.security.oauth2.client.web.OAuth2AuthorizationCodeGrantFilter@62bcfa01, org.springframework.security.web.access.ExceptionTranslationFilter@6baa673d, org.springframework.security.web.access.intercept.AuthorizationFilter@397a70d8]
+2023-06-19T01:03:11.611+09:00  INFO 7091 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-06-19T01:03:11.612+09:00  INFO 7091 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-06-19T01:03:11.613+09:00  INFO 7091 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-06-19T01:03:11.622+09:00  INFO 7091 --- [    Test worker] c.s.springboot.web.HelloControllerTest   : Started HelloControllerTest in 0.528 seconds (process running for 11.404)
 </pre>
 </span>
 </div>
@@ -129,7 +122,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at 2023. 6. 19. 오전 12:49:26</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at 2023. 6. 19. 오전 1:03:13</p>
 </div>
 </div>
 </body>
