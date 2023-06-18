@@ -1,2 +1,26 @@
 server:
   port: 8081
+  servlet:
+    encoding:
+      force: true
+
+spring:
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true # h2 웹 콘솔 활성화
+
+
+
+  #    spring.jpa.properties.hibernate.dialect.storage_engine=innodb
+  jooq:
+    sql-dialect: MySQL57Dialect
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:testdb
+
+
+
+
+
